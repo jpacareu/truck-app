@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 2,
-    backgroundColor: 'gray',
+    backgroundColor: 'lightblue',
   },
   nisumLogoCircle: {
     display: 'flex',
