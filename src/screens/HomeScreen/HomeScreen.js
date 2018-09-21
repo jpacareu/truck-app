@@ -4,7 +4,7 @@ import MainMap from '../../components/MainMap/MainMap';
 
 export default class HomeScreen extends React.Component {
  static navigationOptions = {
-    title: 'Welcome',
+    title: 'Select destination',
   };
   render() {
     return (

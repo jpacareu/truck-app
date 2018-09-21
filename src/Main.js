@@ -1,10 +1,11 @@
 import React from 'react';
 import {
-    Text
+    Text, View
 } from 'react-native';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import LoginScreen from './screens/LoginScreen/LoginScreen';
 import ConfirmationCodeScreen from './screens/ConfirmationCodeScreen/ConfirmationCodeScreen';
+import RoleSelectionScreen from './screens/RoleSelectionScreen/RoleSelectionScreen';
 import {
     createStackNavigator,
 } from 'react-navigation';
@@ -15,6 +16,12 @@ const Main = createStackNavigator({
     },
     ConfirmationCode: {
         screen: ConfirmationCodeScreen
+    },
+    RoleSelection: {
+        screen: RoleSelectionScreen,
+        navigationOptions : () => ({
+            header: null 
+        })
     },
     Login: {
         screen: LoginScreen,
