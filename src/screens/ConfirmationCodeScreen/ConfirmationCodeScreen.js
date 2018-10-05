@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TextInput,StyleSheet, Alert } from 'react-native'
 import { Button } from 'react-native-elements'
-import colors from '../../styles/colors';
+import globalStyles, { colors } from '../../styles/styles';
 
 export default class ConfirmationCodeScreen extends Component {
     static navigationOptions = {
@@ -10,7 +10,7 @@ export default class ConfirmationCodeScreen extends Component {
     state = {confCode: '1234'};
   navigate = () => {
     const { navigate } = this.props.navigation;
-    navigate('RoleSelection',{status: true})
+    navigate('UserInformation',{status: true})
   }
   sendAgainHandler = () => {
     Alert.alert(

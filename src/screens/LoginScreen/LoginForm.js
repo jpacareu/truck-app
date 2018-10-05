@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, TextInput, StyleSheet  } from 'react-native'
 import RNPickerSelect from 'react-native-picker-select';
 import { Button } from 'react-native-elements'
-import colors from '../../styles/colors';
+import { colors } from '../../styles/styles';
 
 export default class LoginForm extends Component {
   

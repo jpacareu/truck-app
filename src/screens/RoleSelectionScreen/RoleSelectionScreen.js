@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import { AsyncStorage } from "react-native"
-import colors from '../../styles/colors';
+import colors from '../../styles/styles';
 
 export default class RoleSelectionScreen extends Component {
   navigateToMap = () => {

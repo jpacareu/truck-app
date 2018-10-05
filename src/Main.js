@@ -5,6 +5,7 @@ import {
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import LoginScreen from './screens/LoginScreen/LoginScreen';
 import ConfirmationCodeScreen from './screens/ConfirmationCodeScreen/ConfirmationCodeScreen';
+import UserInformationScreen from './screens/UserInformationScreen/UserInformationScreen';
 import RoleSelectionScreen from './screens/RoleSelectionScreen/RoleSelectionScreen';
 import {
     createStackNavigator,
@@ -14,14 +15,17 @@ const Main = createStackNavigator({
     Home: {
         screen: HomeScreen
     },
-    ConfirmationCode: {
-        screen: ConfirmationCodeScreen
-    },
     RoleSelection: {
         screen: RoleSelectionScreen,
         navigationOptions : () => ({
             header: null 
         })
+    },
+    ConfirmationCode: {
+        screen: ConfirmationCodeScreen
+    },
+    UserInformation: {
+        screen: UserInformationScreen
     },
     Login: {
         screen: LoginScreen,
