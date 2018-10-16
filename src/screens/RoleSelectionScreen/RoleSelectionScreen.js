@@ -2,12 +2,15 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import { AsyncStorage } from "react-native"
+import axios from 'axios';
 import colors from '../../styles/styles';
+import CONST from '../../constants';
 
 export default class RoleSelectionScreen extends Component {
   navigateToMap = () => {
     const { navigate } = this.props.navigation;
-    navigate('Home')
+    this._retrieveData()
+		//navigate('Home')
   }
   constructor(props){
     super(props);
@@ -17,24 +20,20 @@ export default class RoleSelectionScreen extends Component {
       this._retrieveData()
   }
   _storeData = async () => {
-    console.log("_storeData");
-    try {
-      await AsyncStorage.setItem('phone_number', '9999');
-    } catch (error) {
-      console.log("Error: ", error);
-    }
+    
   }
   _retrieveData = async () => {
-    console.log("_retrieveData");
+    console.log("_retrieveData: ",`${CONST.BASE_API}/auth`);
     try {
-      const value = await AsyncStorage.getItem('phone_number');
+      const value = await axios.get(`${CONST.BASE_API}/auth`);
       if (value !== null) {
-        console.log(value);
+        console.log(value.data);
       }
      } catch (error) {
         console.log("Error: ", error);
      }
   }
+
   render() {
     return (
       <View style={styles.container}>

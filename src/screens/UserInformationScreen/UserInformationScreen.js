@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements'
 import globalStyles from '../../styles/styles';
 
 export default class UserInformationScreen extends Component {
-  state = { name: '',email: ''}
+  state = { name: 'Javier',email: 'javier@email.com'}
   navigate = () => {
     const { navigate } = this.props.navigation;
     navigate('RoleSelection')
