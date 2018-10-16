@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
-import { AsyncStorage } from "react-native"
 import axios from 'axios';
 import colors from '../../styles/styles';
 import CONST from '../../constants';
@@ -9,23 +8,28 @@ import CONST from '../../constants';
 export default class RoleSelectionScreen extends Component {
   navigateToMap = () => {
     const { navigate } = this.props.navigation;
-    this._retrieveData()
-		//navigate('Home')
-  }
-  constructor(props){
-    super(props);
     this._storeData()
+		navigate(CONST.navigationRoutes.Home);
   }
-  componentDidMount(){
-      this._retrieveData()
-  }
+
   _storeData = async () => {
-    
+    const { navigation } = this.props;
+    const [username, email] = [ navigation.getParam('username', ''), navigation.getParam('email', '')];
+    if(username && email){
+      try {
+        await AsyncStorage.setItem('@MySuperStore:username', username);
+        await AsyncStorage.setItem('@MySuperStore:email', email);
+        await AsyncStorage.setItem('@MySuperStore:isLoggedIn', true);
+        this._postUserInformation({username,email})
+      } catch (error) {
+        // Error saving data
+      }
+    }
   }
-  _retrieveData = async () => {
+  _postUserInformation = async (userInfo) => {
     console.log("_retrieveData: ",`${CONST.BASE_API}/auth`);
     try {
-      const value = await axios.get(`${CONST.BASE_API}/auth`);
+      const value = await axios.post(`${CONST.BASE_API}/user/add`,userInfo);
       if (value !== null) {
         console.log(value.data);
       }
@@ -46,6 +50,7 @@ export default class RoleSelectionScreen extends Component {
         title='Client' />
         <Button
         raised
+        onPress={this.navigateToMap}
         buttonStyle={styles.button}
         icon={{name: 'local-shipping'}}
         title='Provider' />

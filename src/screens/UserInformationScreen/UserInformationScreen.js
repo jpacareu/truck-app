@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import { Text, View, TextInput, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import globalStyles from '../../styles/styles';
+import CONST from '../../constants';
 
 export default class UserInformationScreen extends Component {
   state = { name: 'Javier',email: 'javier@email.com'}
   navigate = () => {
     const { navigate } = this.props.navigation;
-    navigate('RoleSelection')
+    navigate(CONST.navigationRoutes.RoleSelection, {
+      username: this.state.name,
+      email: this.state.email
+    })
   }
 
   render() {

@@ -1,8 +1,21 @@
 import React, { Component } from 'react'
-import { Text, View, StyleSheet,TouchableWithoutFeedback,Keyboard } from 'react-native'
+import { Text, View, StyleSheet,TouchableWithoutFeedback,Keyboard, AsyncStorage } from 'react-native'
 import LoginForm from './LoginForm'
+import CONST from '../../constants';
 
 export default class LoginScreen extends Component {
+  state = {
+    isLoggedIn: false
+  }
+
+  async componentDidMount() {
+    const { navigate } = this.props.navigation;
+    let isLoggedIn = await AsyncStorage.getItem("@MySuperStore:isLoggedIn");
+    if (isLoggedIn !== null) {
+      navigate(CONST.navigationRoutes.Home)
+    }
+  }
+
   render() {
 
     return (
