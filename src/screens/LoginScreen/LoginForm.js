@@ -30,6 +30,7 @@ export default class LoginForm extends Component {
   }
   render() {
     const {countryPhoneCode,phoneNumber, listPhone} = this.state;
+    const { onSubmit } = this.props;
     const { navigate } = this.props.navigation;
 
     return (
@@ -49,7 +50,7 @@ export default class LoginForm extends Component {
             <Button
             disabled={!phoneNumber.length}
             buttonStyle={styles.submitButton}
-            onPress={()=> navigate('ConfirmationCode')}
+            onPress={onSubmit({countryPhoneCode,phoneNumber})}
             large
             title="Login"
             />

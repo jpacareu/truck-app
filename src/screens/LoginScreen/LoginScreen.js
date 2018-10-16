@@ -16,6 +16,20 @@ export default class LoginScreen extends Component {
     }
   }
 
+  onSubmitHandler = ({countryPhoneCode,phoneNumber}) => () => {
+    // Send confirmation CODE
+    if(this.phoneExist({countryPhoneCode,phoneNumber})){
+      navigate(CONST.navigationRoutes.ConfirmationCode,{
+        userExist: true
+      })
+    }
+  }
+
+  phoneExist = async (phoneInfo) => {
+      const phoneExist = await axios.post(`${CONST.BASE_API}/phone/`,phoneInfo);
+      return userExist
+  }
+
   render() {
 
     return (
@@ -27,7 +41,7 @@ export default class LoginScreen extends Component {
               </View>
           </View>
           <View style={styles.loginForm}>
-              <LoginForm {...this.props}/>
+              <LoginForm onSubmit={this.onSubmitHandler} {...this.props}/>
           </View>
         </View> 
       </TouchableWithoutFeedback>
