@@ -18,6 +18,7 @@ export default class LoginScreen extends Component {
 
   onSubmitHandler = ({countryPhoneCode,phoneNumber}) => () => {
     // Send confirmation CODE
+    const { navigate } = this.props.navigation; 
     if(this.phoneExist({countryPhoneCode,phoneNumber})){
       navigate(CONST.navigationRoutes.ConfirmationCode,{
         userExist: true
