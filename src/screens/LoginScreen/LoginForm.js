@@ -7,36 +7,18 @@ import { colors } from '../../styles/styles';
 export default class LoginForm extends Component {
   
   state = {
-      countryPhoneCode: '56',
-      phoneNumber: '999999999',
-      listPhone: [
-        {
-            label: 'Cuba',
-            value: '53',
-        },
-        {
-            label: 'Chile',
-            value: '56',
-        },
-        {
-            label: 'USA',
-            value: '1',
-        },
-        {
-            label: 'México',
-            value: '52',
-        }
-    ],
+      localPhoneCode: '56',
+      phoneNumber: '123123123'
   }
   render() {
-    const {countryPhoneCode,phoneNumber, listPhone} = this.state;
+    const {localPhoneCode, phoneNumber} = this.state;
     const { navigate } = this.props.navigation;
 
     return (
       <View>
         <View style={styles.formPhone}>
             <Text style={styles.phoneCode}>
-                {`+${countryPhoneCode} `}
+                {`+${localPhoneCode} `}
             </Text>
             <TextInput
                 keyboardType="phone-pad"

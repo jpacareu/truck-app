@@ -9,6 +9,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^8.0.0",
     "axios": "^0.18.0",
     "expo": "^30.0.1",
     "prop-types": "^15.6.2",
@@ -18,5 +19,11 @@
     "react-native-maps": "^0.21.0",
     "react-native-picker-select": "^4.3.0",
     "react-navigation": "^2.14.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-root-import": "^6.1.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.83.0"
   }
 }

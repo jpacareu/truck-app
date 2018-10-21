@@ -1,8 +1,23 @@
 {
-  "presets": ["babel-preset-expo"],
+  "presets": ["babel-preset-expo","flow"],
   "env": {
     "development": {
-      "plugins": ["transform-react-jsx-source"]
-    }
+      "plugins": [
+				"transform-react-jsx-source",
+				["babel-plugin-root-import", {
+      "paths": [
+				{
+					"rootPathPrefix": "$",
+					"rootPathSuffix": "src/react-native-elements/"
+      	}, {
+					"rootPathPrefix": "#",
+					"rootPathSuffix": "src/react-native-elements/components/"
+				}]
+			}]
+		]
+  },
+		"production": {
+			"plugins": ["babel-plugin-root-import"]
+		}
   }
 }
