@@ -31,7 +31,7 @@ export default class LoginForm extends Component {
             <Button
             disabled={!phoneNumber.length}
             buttonStyle={styles.submitButton}
-            onPress={()=> navigate('ConfirmationCode')}
+            onPress={onSubmit({countryPhoneCode,phoneNumber})}
             large
             title="Login"
             />
