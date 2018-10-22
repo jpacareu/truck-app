@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
-import {Text, View, TextInput, StyleSheet, AsyncStorage} from 'react-native'
-import RNPickerSelect from 'react-native-picker-select';
+import {Text, View, TextInput, StyleSheet} from 'react-native'
 import {Button} from 'react-native-elements'
 import {colors} from '#/styles';
-import CONST from '$/constants'
 
 export default class LoginForm extends Component {
 

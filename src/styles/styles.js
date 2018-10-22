@@ -1,11 +1,13 @@
-import { StyleSheet } from 'react-native';
+import {
+    StyleSheet
+} from 'react-native';
 
 const colors = {
     primary: '#5eb9ff',
     white: 'white'
 }
 
-const globalStyles = StyleSheet.create({  
+const globalStyles = StyleSheet.create({
     buttonPrimary: {
         backgroundColor: colors.primary,
     },
@@ -21,9 +23,23 @@ const globalStyles = StyleSheet.create({
     label: {
         fontWeight: 'bold',
         fontSize: 20
+    },
+    authPage: {
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignContent: 'center',
+    },
+    authPage__text: {
+        textAlign: 'center',
+        fontSize: 24,
+        marginBottom: 10
     }
 });
 
 
-export { colors };
+export {
+    colors
+};
 export default globalStyles;

@@ -38,13 +38,13 @@ class MainMap extends React.Component {
             style={styles.map}
             initialRegion={this.state.region}
           >
+          </MapView>
           <TextInput
             style={styles.searchInput}
             placeholder={'Where to?'}
             onChangeText={(text) => this.setState({text})}
             value={this.state.text}
           />
-          </MapView>
       </View>
     );
   }
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     width: '80%',
     shadowOffset: {width: 0,height: 0},
     shadowRadius: 5,
-    shadowOpacity: 0.4
+    shadowOpacity: 0.4,
   },
   map: {
     width,
