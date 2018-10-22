@@ -7,11 +7,15 @@
 				["babel-plugin-root-import", {
       "paths": [
 				{
+					"rootPathPrefix": "&",
+					"rootPathSuffix": "src/services/"
+      	},
+				{
 					"rootPathPrefix": "$",
-					"rootPathSuffix": "src/react-native-elements/"
+					"rootPathSuffix": "src/"
       	}, {
 					"rootPathPrefix": "#",
-					"rootPathSuffix": "src/react-native-elements/components/"
+					"rootPathSuffix": "src/styles/"
 				}]
 			}]
 		]

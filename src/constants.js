@@ -9,5 +9,9 @@ export default {
 		ConfirmationCode: 'ConfirmationCode',
 		UserInformation: 'UserInformation',
 		Login: 'Login'
-	}
+	},
+	STATUS: {
+		SUCCESS: 'SUCCESS'
+	},
+	confirmationCode: '1234'
 }
