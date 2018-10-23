@@ -5,8 +5,8 @@ import {
   Dimensions,
   TextInput,
 } from 'react-native';
-import MapView, { Marker, ProviderPropType } from 'react-native-maps';
 
+import MapView, { Marker, ProviderPropType } from 'react-native-maps';
 const { width, height } = Dimensions.get('window');
 
 const ASPECT_RATIO = width / height;
@@ -45,7 +45,7 @@ class MainMap extends React.Component {
             onChangeText={(text) => this.setState({text})}
             value={this.state.text}
           />
-      </View>
+    </View>
     );
   }
 }

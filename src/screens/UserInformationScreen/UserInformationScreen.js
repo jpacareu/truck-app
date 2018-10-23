@@ -46,9 +46,10 @@ export default class UserInformationScreen extends Component {
             role
         });
 
+        navigate
         const resetAction = StackActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({routeName: CONST.navigationRoutes.Home})]
+            actions: [NavigationActions.navigate({routeName: CONST.routes.Home})]
         });
         dispatch(resetAction);
     }

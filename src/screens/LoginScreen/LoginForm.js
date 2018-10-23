@@ -12,7 +12,8 @@ export default class LoginForm extends Component {
 
     render() {
         const {localCode, phoneNumber} = this.state;
-        const {navigate} = this.props.navigation;
+        const { authenticating } = this.props;
+        
         return (
             <View>
                 <View style={styles.formPhone}>
@@ -28,7 +29,7 @@ export default class LoginForm extends Component {
                         {phoneNumber => this.setState({phoneNumber})}/>
                 </View>
                 <Button
-                    disabled={!phoneNumber.length}
+                    disabled={!phoneNumber.length || authenticating}
                     buttonStyle={styles.submitButton}
                     onPress={this.props.onSubmit({localCode, phoneNumber})}
                     large
@@ -48,13 +49,13 @@ const styles = StyleSheet.create({
         marginRight: '10%'
     },
     phoneCode: {
-        fontSize: 15,
+        fontSize: 20,
         paddingTop: 3,
         fontWeight: 'bold'
     },
     phoneNumber: {
         flex: 1,
-        fontSize: 15
+        fontSize: 20
     },
     submitButton: {
         marginTop: 30,

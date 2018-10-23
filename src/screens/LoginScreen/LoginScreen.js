@@ -9,7 +9,6 @@ import {
 import LoginForm from './LoginForm'
 import CONST from '$/constants'
 import axios from 'axios'
-import Toaster, {ToastStyles} from 'react-native-toaster'
 import Service from '&/services';
 
 export default class LoginScreen extends Component {
@@ -17,7 +16,8 @@ export default class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
+            authenticating: false
         }
     }
 
@@ -33,7 +33,7 @@ export default class LoginScreen extends Component {
                 this
                     .props
                     .navigation
-                    .navigate(CONST.navigationRoutes.Home)
+                    .navigate(CONST.routes.Home)
             }
         } catch (error) {
             console.log('Error isLoggedIn: ', error);
@@ -47,14 +47,20 @@ export default class LoginScreen extends Component {
     onSubmitHandler = ({localCode, phoneNumber}) => async () => {
         // Send confirmation CODE
         const {navigate} = this.props.navigation;
-				let userExist = await this.phoneExist({localCode, phoneNumber});
-				console.log("userExist: ",userExist);
-				this.sendConfirmationCode({localCode, phoneNumber});
-				navigate(CONST.navigationRoutes.ConfirmationCode, {
-						userExist: userExist,
-						localCode,
-						phoneNumber
-				});
+        this.setState({
+            authenticating: true
+        });
+        let userExist = await this.phoneExist({localCode, phoneNumber});
+        console.log("userExist: ",userExist);
+        this.setState({
+            authenticating: false
+        });
+        this.sendConfirmationCode({localCode, phoneNumber});
+        navigate(CONST.routes.ConfirmationCode, {
+                userExist,
+                localCode,
+                phoneNumber
+        });
     }
 		
 		_saveUserInformation = async (userInfo) => {
@@ -88,7 +94,7 @@ export default class LoginScreen extends Component {
                         </View>
                     </View>
                     <View style={styles.loginForm}>
-                        <LoginForm onSubmit={this.onSubmitHandler} {...this.props}/>
+                        <LoginForm authenticating={this.state.authenticating} onSubmit={this.onSubmitHandler} {...this.props}/>
                     </View>
                 </View>
             </TouchableWithoutFeedback>

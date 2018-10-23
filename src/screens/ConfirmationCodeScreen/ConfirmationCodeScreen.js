@@ -21,24 +21,20 @@ export default class ConfirmationCodeScreen extends Component {
     }
 
     confirmCode = () => {
-        const {navigate, dispatch} = this.props.navigation;
+        const {navigate} = this.props.navigation;
         const {confCode, userExist} = this.state;
         console.log("userExist: ", userExist);
         if (confCode === CONST.confirmationCode) {
             if (userExist) {
-                const resetAction = StackActions.reset({
-                    index: 0,
-                    actions: [NavigationActions.navigate({routeName: CONST.navigationRoutes.Home})]
-                });
-                dispatch(resetAction);
+                navigate(CONST.routes.App);
             } else {
-                navigate(CONST.navigationRoutes.UserInformation, {status: true})
+                navigate(CONST.routes.UserInformation, {status: true})
             }
         } else {
             Alert.alert('Sorry!', 'Your code is incorrect!', [
                 {
                     text: 'OK',
-                    onPress: () => navigate(CONST.navigationRoutes.Login, {failedAuth: true})
+                    onPress: () => navigate(CONST.routes.Login, {failedAuth: true})
                 }
             ], {cancelable: false})
         }

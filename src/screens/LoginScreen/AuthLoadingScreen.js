@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import Service from '&/services';
 import globalStyles, { colors } from '#/styles';
+import CONST from '$/constants';
 
 class AuthLoadingScreen extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class AuthLoadingScreen extends React.Component {
 
   _bootstrapAsync = async () => {
     const isLoggedIn = await Service.isLoggedIn();
-    this.props.navigation.navigate(isLoggedIn ? 'App' : 'Auth');
+    this.props.navigation.navigate(isLoggedIn ? CONST.routes.App : CONST.routes.Auth);
   };
 
   render() {

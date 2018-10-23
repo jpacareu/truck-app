@@ -11,6 +11,14 @@
 					"rootPathSuffix": "src/services/"
       	},
 				{
+					"rootPathPrefix": "s",
+					"rootPathSuffix": "src/screens/"
+      	},
+				{
+					"rootPathPrefix": "c",
+					"rootPathSuffix": "src/components/"
+      	},
+				{
 					"rootPathPrefix": "$",
 					"rootPathSuffix": "src/"
       	}, {
